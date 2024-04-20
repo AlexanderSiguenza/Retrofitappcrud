@@ -42,21 +42,11 @@ class ActualizarAlumnoActivity : AppCompatActivity() {
         edadEditText = findViewById(R.id.edadEditText)
         actualizarButton = findViewById(R.id.actualizarButton)
 
-        // Crea un cliente OkHttpClient con un interceptor que agrega las credenciales de autenticación
-        val client = OkHttpClient.Builder()
-            .addInterceptor { chain ->
-                val request = chain.request().newBuilder()
-                    .addHeader("Authorization", Credentials.basic(auth_username, auth_password))
-                    .build()
-                chain.proceed(request)
-            }
-            .build()
 
         // Crea una instancia de Retrofit con el cliente OkHttpClient
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://200.33.51.36/api/")
+            .baseUrl("https://66240d4504457d4aaf9b8530.mockapi.io/api/")
             .addConverterFactory(GsonConverterFactory.create())
-            .client(client)
             .build()
 
         // Crea una instancia del servicio que utiliza la autenticación HTTP básica

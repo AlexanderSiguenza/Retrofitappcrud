@@ -5,18 +5,18 @@ import retrofit2.http.*
 
 interface AlumnoApi {
 
-    @GET("alumno.php")
+    @GET("escuela/alumno")
     fun obtenerAlumnos(): Call<List<Alumno>>
 
-    @GET("alumno/{id}")
+    @GET("escuela/alumno/{id}")
     fun obtenerAlumnoPorId(@Path("id") id: Int): Call<Alumno>
 
-    @POST("alumno")
+    @POST("escuela/alumno")
     fun crearAlumno(@Body alumno: Alumno): Call<Alumno>
 
-    @PUT("alumno/{id}")
+    @PUT("escuela/alumno/{id}")
     fun actualizarAlumno(@Path("id") id: Int, @Body alumno: Alumno): Call<Alumno>
 
-    @PUT("alumno/{id}")
+    @PUT("escuela/alumno/{id}")
     fun eliminarAlumno(@Path("id") id: Int, @Body alumno: Alumno): Call<Void>
 }
