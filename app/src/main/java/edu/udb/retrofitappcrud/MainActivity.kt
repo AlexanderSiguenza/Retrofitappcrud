@@ -125,9 +125,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun eliminarAlumno(alumno: Alumno, api: AlumnoApi) {
-        val alumnoTMP = Alumno(alumno.id,"", "", -987)
         Log.e("API", "id : $alumno")
-        val llamada = api.eliminarAlumno(alumno.id, alumnoTMP)
+        val llamada = api.eliminarAlumno(alumno.id)
         llamada.enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
